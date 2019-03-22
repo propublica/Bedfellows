@@ -705,7 +705,7 @@ def similarity_analysis(db, cursor):
             except:
                 print("Invalid committee id, try again.")
                 fec_committee_id = input("Enter contributor committee's id: \n")
-            try: 
+            try:
                 cosine_sim = {}
                 for j in range(1,adj_matrix.shape[0]):
                     cosine_sim[adj_matrix.ix[j].name] = np.dot(adj_matrix.ix[fec_committee_id],adj_matrix.ix[j])/(np.linalg.norm(adj_matrix.ix[fec_committee_id])*np.linalg.norm(adj_matrix.ix[j])) #cosine similarity as distance metric

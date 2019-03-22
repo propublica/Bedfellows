@@ -9,7 +9,7 @@ from tqdm import tqdm
 database = MySQLDatabase(
     'fec',
     user='root',
-    password='root',
+    password='',
     host='localhost'
 )
 
@@ -109,7 +109,7 @@ class FecCommittees(BaseModel):
             path
         )
         src_data = []
-        with open(csv_in) as csvfile, db.atomic():
+        with open(csv_in) as csvfile:
             rows = DictReader(csvfile)
             for batch in chunked(rows, 100):
                 src_data = []
